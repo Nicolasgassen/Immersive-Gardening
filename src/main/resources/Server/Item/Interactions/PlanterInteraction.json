@@ -1,0 +1,6 @@
+{
+  "Type": "PlanterInteraction",
+  "Effects": {
+    "ItemAnimationId": "Interact"
+  }
+}

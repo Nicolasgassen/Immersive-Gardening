@@ -1,0 +1,6 @@
+item.Planter_Hardwood_Half.name=Small Hardwood Planter
+item.Planter_Hardwood_Pot.name=Small Planter
+item.Rake_Small.name=Small Rake
+item.Rake.name=Rake
+item.Shovel_Small.name=Small Shovel
+interactionHints.interactPlanter = Press [{key}] to Insert / Remove a plant
