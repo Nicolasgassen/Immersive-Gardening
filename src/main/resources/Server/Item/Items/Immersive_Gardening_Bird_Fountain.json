@@ -7,17 +7,17 @@
     "Blocks.Deco"
   ],
   "Set": "",
-  "Icon": "Icons/ItemsGenerated/Immersive_Gardening_Rake.png",
+  "Icon": "Icons/ItemsGenerated/Immersive_Gardening_Bird_Fountain.png",
   "IconProperties": {
-    "Scale": 0.5,
+    "Scale": 0.4,
     "Rotation": [
-      39,
-      155,
-      0
+      4,
+      44,
+      19
     ],
     "Translation": [
-      2,
-      -33
+      3,
+      -28
     ]
   },
   "Interactions": {
@@ -43,14 +43,19 @@
   "BlockType": {
     "BlockParticleSetId": "Wood",
     "BlockSoundSetId": "Wood",
-    "CustomModel": "Blocks/Rake.blockymodel",
+    "CustomModel": "Blocks/Bird_Fountain.blockymodel",
     "CustomModelTexture": [
       {
-        "Texture": "BlockTextures/Rake.png",
+        "Texture": "BlockTextures/Bird_Fountain.png",
         "Weight": 1
       }
     ],
     "DrawType": "Model",
+    "Gathering": {
+      "Soft": {
+        "IsWeaponBreakable": false
+      }
+    },
     "HitboxType": "Rake",
     "Material": "Solid",
     "Opacity": "Transparent",
@@ -77,5 +82,5 @@
       "Deco"
     ]
   },
-  "ItemSoundSetId": "ISS_Blocks_Stone"
+  "ItemSoundSetId": "ISS_Blocks_Wood"
 }

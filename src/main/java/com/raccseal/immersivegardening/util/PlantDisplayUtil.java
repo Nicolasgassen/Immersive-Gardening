@@ -1,4 +1,6 @@
 package com.raccseal.immersivegardening.util;
+import com.raccseal.immersivegardening.ImmersiveGardeningPlugin;
+import com.raccseal.immersivegardening.component.PlantDisplayComponent;
 
 import com.hypixel.hytale.component.AddReason;
 import com.hypixel.hytale.component.Holder;
@@ -25,9 +27,10 @@ import com.hypixel.hytale.server.core.modules.entity.item.PreventPickup;
 import com.hypixel.hytale.server.core.modules.entity.tracker.NetworkId;
 import com.hypixel.hytale.server.core.prefab.PrefabCopyableComponent;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.raccseal.immersivegardening.ImmersiveGardeningPlugin;
-import com.raccseal.immersivegardening.component.PlantDisplayComponent;
+
 import org.jspecify.annotations.Nullable;
+
+import java.util.Arrays;
 import java.util.UUID;
 
 public class PlantDisplayUtil {
@@ -36,34 +39,48 @@ public class PlantDisplayUtil {
     /**
      * Creates or updates the display entities for plants in a planter.
      *
-     * @param store       The entity store
-     * @param existingRef The existing display entity ref (can be null)
-     * @param plantItem   The item to display
-     * @param planterPos  The position of the planter block
-     * @param yawDegrees  The rotations of the plant entities in degrees
-     * @return The UUIDs of the new display entity, or null if creation failed
+     * @param store         The entity store
+     * @param existingRef   The existing display entity ref (can be null)
+     * @param plantItems    Array of items to display (one per entity)
+     * @param planterPos    The position of the planter block
+     * @param entityOffsets Array of position offsets for each entity
+     * @return The UUIDs of the new display entities, or null if creation failed
      */
     @Nullable
-    public static UUID[] remakePlantEntities(Store<EntityStore> store, @Nullable Ref<EntityStore> existingRef, @Nullable ItemStack plantItem, Vector3i planterPos, Vector3d[] entityOffsets) {
+    public static UUID[] remakePlantEntities(Store<EntityStore> store, @Nullable Ref<EntityStore> existingRef, @Nullable ItemStack[] plantItems, Vector3i planterPos, Vector3d[] entityOffsets) {
+        LOGGER.atInfo().log("remakePlantEntities called - plantItems: " + (plantItems != null ? plantItems.length : "null") + ", entityOffsets: " + entityOffsets.length);
+
         if (existingRef != null) {
+            LOGGER.atInfo().log("Removing existing entity reference");
             store.removeEntity(existingRef, RemoveReason.REMOVE);
         }
-        if (plantItem == null || plantItem.isEmpty()) {
+        if (plantItems == null || plantItems.length == 0) {
+            LOGGER.atWarning().log("No plant items provided, returning null");
             return null;
         }
 
         final int entityCount = entityOffsets.length;
-
-        float scale = 0.5f;
-        Item item = plantItem.getItem();
-        AssetIconProperties iconProps = item.getIconProperties();
-        if (iconProps != null) {
-            scale = iconProps.getScale();
-        }
+        LOGGER.atInfo().log("Creating " + entityCount + " plant entities from " + plantItems.length + " plant types");
 
         // Initialize all holders
         UUID[] uuids = new UUID[entityCount];
         for (int i = 0; i < entityCount; i++) {
+            // Get the plant item for this entity, cycling through the array if necessary
+            ItemStack plantItem = plantItems[i % plantItems.length];
+            LOGGER.atInfo().log("  Entity " + i + ": using plantItem[" + (i % plantItems.length) + "] = " + (plantItem != null ? plantItem.getItemId() : "null"));
+
+            if (plantItem == null || plantItem.isEmpty()) {
+                LOGGER.atWarning().log("  Entity " + i + " has null/empty plant, skipping");
+                uuids[i] = null;
+                continue;
+            }
+
+            float scale = 0.5f;
+            Item item = plantItem.getItem();
+            AssetIconProperties iconProps = item.getIconProperties();
+            if (iconProps != null) {
+                scale = iconProps.getScale();
+            }
 
             Holder<EntityStore> holder = EntityStore.REGISTRY.newHolder();
             Vector3d displayPosition = planterPos.toVector3d().add(entityOffsets[i]);
@@ -96,14 +113,22 @@ public class PlantDisplayUtil {
             // Add the new entity to the world
             Ref<EntityStore> newRef = store.addEntity(holder, AddReason.SPAWN);
             if (newRef == null) {
-                LOGGER.atWarning().log("Failed to create plant display entity at " + planterPos);
+                LOGGER.atWarning().log("  Entity " + i + " creation failed");
+                uuids[i] = null;
                 continue;
             }
+            LOGGER.atInfo().log("  Entity " + i + " created successfully with UUID: " + entityUUID);
             uuids[i] = entityUUID;
         }
+
+        long successCount = Arrays.stream(uuids).filter(u -> u != null).count();
+        LOGGER.atInfo().log("remakePlantEntities complete: " + successCount + "/" + entityCount + " entities created");
         return uuids;
     }
 
+    /**
+     * Convenience overload for a single plant item with a single entity offset.
+     */
     public static UUID[] remakePlantEntities(
             Store<EntityStore> store,
             @Nullable Ref<EntityStore> existingRef,
@@ -114,9 +139,28 @@ public class PlantDisplayUtil {
         return remakePlantEntities(
                 store,
                 existingRef,
-                plantItem,
+                plantItem == null ? null : new ItemStack[] { plantItem },
                 planterPos,
                 new Vector3d[] { entityOffsets }
+        );
+    }
+
+    /**
+     * Convenience overload for a single plant item with multiple entity offsets.
+     */
+    public static UUID[] remakePlantEntities(
+            Store<EntityStore> store,
+            @Nullable Ref<EntityStore> existingRef,
+            @Nullable ItemStack plantItem,
+            Vector3i planterPos,
+            Vector3d[] entityOffsets
+    ) {
+        return remakePlantEntities(
+                store,
+                existingRef,
+                plantItem == null ? null : new ItemStack[] { plantItem },
+                planterPos,
+                entityOffsets
         );
     }
 

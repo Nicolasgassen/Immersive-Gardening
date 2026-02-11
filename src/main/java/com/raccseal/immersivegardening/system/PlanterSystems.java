@@ -1,4 +1,8 @@
 package com.raccseal.immersivegardening.system;
+import com.hypixel.hytale.server.core.universe.PlayerRef;
+import com.raccseal.immersivegardening.ImmersiveGardeningPlugin;
+import com.raccseal.immersivegardening.component.BoundPlantEntityComponent;
+import com.raccseal.immersivegardening.component.PlantDisplayComponent;
 
 import com.hypixel.hytale.component.AddReason;
 import com.hypixel.hytale.component.ArchetypeChunk;
@@ -19,17 +23,14 @@ import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.event.events.ecs.BreakBlockEvent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.entity.item.ItemComponent;
-import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
 import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.raccseal.immersivegardening.ImmersiveGardeningPlugin;
-import com.raccseal.immersivegardening.component.BoundPlantEntityComponent;
-import com.raccseal.immersivegardening.component.PlantDisplayComponent;
+
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Systems for handling planter block events and plant display entity lifecycle.
@@ -44,17 +45,16 @@ public class PlanterSystems {
      */
     public static boolean isPlanterBlock(BlockType blockType) {
         if (blockType == null) {
-            return true;
+            return false;
         }
 
         String blockId = blockType.getId();
         if (blockId == null) {
-            return true;
+            return false;
         }
 
         // Check if the block ID contains "Planter"
-        boolean isPlanter = blockId.contains("Planter") && blockId.contains("Immersive_Gardening");
-        return !isPlanter;
+        return blockId.contains("Planter") && blockId.contains("Immersive_Gardening");
     }
 
     /**
@@ -69,12 +69,13 @@ public class PlanterSystems {
 
         @Override
         public void handle(int index,
-                           @Nonnull ArchetypeChunk<EntityStore> archetypeChunk,
-                           @Nonnull Store<EntityStore> store,
-                           @Nonnull CommandBuffer<EntityStore> commandBuffer,
-                           @Nonnull BreakBlockEvent event) {
+                           @NonNull ArchetypeChunk<EntityStore> archetypeChunk,
+                           @NonNull Store<EntityStore> store,
+                           @NonNull CommandBuffer<EntityStore> commandBuffer,
+                           @NonNull BreakBlockEvent event) {
             World world = commandBuffer.getExternalData().getWorld();
             Vector3i targetBlock = event.getTargetBlock();
+
 
             int x = targetBlock.getX();
             int y = targetBlock.getY();
@@ -85,7 +86,7 @@ public class PlanterSystems {
             if (worldchunk == null) return;
 
             BlockType blockType = worldchunk.getBlockType(targetBlock);
-            if (isPlanterBlock(blockType)) {
+            if (!isPlanterBlock(blockType)) {
                 return;
             }
 
@@ -104,7 +105,7 @@ public class PlanterSystems {
                 return;
             }
 
-            for (java.util.UUID entityUUID : boundEntityComp.getAttachedEntities()) {
+            for (java.util.UUID entityUUID : new java.util.ArrayList<>(boundEntityComp.getAttachedEntities())) {
                 Ref<EntityStore> displayRef = world.getEntityRef(entityUUID);
                 if (displayRef == null) {
                     continue;
@@ -119,7 +120,6 @@ public class PlanterSystems {
                     ItemStack plantItem = displayComp.getHeldStack();
                     spawnItemDrop(commandBuffer, plantItem, targetBlock);
                 }
-                LOGGER.atInfo().log("Removing plant display entity for broken planter at " + targetBlock);
                 commandBuffer.removeEntity(displayRef, RemoveReason.REMOVE);
             }
 
@@ -130,7 +130,12 @@ public class PlanterSystems {
          * Spawns an item drop at the specified block position.
          */
         private void spawnItemDrop(CommandBuffer<EntityStore> commandBuffer, ItemStack itemStack, Vector3i blockPos) {
-            Vector3d dropPosition = blockPos.toVector3d().add(0.5, 1.0, 0.5);
+            Vector3d randomOffset = new Vector3d(
+                    (Math.random() - 0.2) * 0.2,
+                    1.1,
+                    (Math.random() - 0.2) * 0.2
+            );
+            Vector3d dropPosition = blockPos.toVector3d().add(randomOffset);
 
             Holder<EntityStore> itemHolder = ItemComponent.generateItemDrop(
                     commandBuffer,
@@ -143,7 +148,7 @@ public class PlanterSystems {
             if (itemHolder != null) {
                 ItemComponent itemComponent = itemHolder.getComponent(ItemComponent.getComponentType());
                 if (itemComponent != null) {
-                    itemComponent.setPickupDelay(0.5f);
+                    itemComponent.setPickupDelay(0.0f);
                 }
                 commandBuffer.addEntity(itemHolder, AddReason.SPAWN);
             }
@@ -152,7 +157,7 @@ public class PlanterSystems {
         @NullableDecl
         @Override
         public Query<EntityStore> getQuery() {
-            return ImmersiveGardeningPlugin.get().getPlantDisplayComponent();
+            return PlayerRef.getComponentType();
         }
     }
 
@@ -168,9 +173,9 @@ public class PlanterSystems {
         @Override
         public void tick(float dt,
                          int index,
-                         @Nonnull ArchetypeChunk<EntityStore> archetypeChunk,
-                         @Nonnull Store<EntityStore> store,
-                         @Nonnull CommandBuffer<EntityStore> commandBuffer) {
+                         @NonNull ArchetypeChunk<EntityStore> archetypeChunk,
+                         @NonNull Store<EntityStore> store,
+                         @NonNull CommandBuffer<EntityStore> commandBuffer) {
             tickCounter++;
             if (tickCounter < TICKS_PER_CHECK) {
                 return;
@@ -202,8 +207,8 @@ public class PlanterSystems {
             World world = store.getExternalData().getWorld();
             BlockType blockType = world.getBlockType(planterPosition);
 
-            if (isPlanterBlock(blockType)) {
-                LOGGER.atInfo().log("Planter block no longer exists at " + planterPosition + ", removing display entity");
+            if (!isPlanterBlock(blockType)) {
+                LOGGER.atInfo().log("Planter block no longer exists at " + planterPosition + ", removing display entity and dropping plant: " + (heldStack != null ? heldStack.getItemId() : "null"));
 
                 commandBuffer.run((entityStore) -> {
                     if (heldStack != null && !heldStack.isEmpty()) {

@@ -1,5 +1,5 @@
 {
-  "Type": "PlanterInteraction",
+  "Type": "PlanterInsertPlantInteraction",
   "Effects": {
     "ItemAnimationId": "Interact"
   }

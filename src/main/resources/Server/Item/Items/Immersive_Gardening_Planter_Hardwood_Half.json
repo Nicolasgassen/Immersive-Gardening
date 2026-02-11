@@ -1,6 +1,6 @@
 {
   "TranslationProperties": {
-    "Name": "items.Planter_Hardwood_Half.name"
+    "Name": "ImmersiveGardening.item.Planter_Hardwood_Half.name"
   },
   "PlayerAnimationsId": "Block",
   "Categories": [
@@ -73,17 +73,12 @@
     },
     "Material": "Solid",
     "Opacity": "Transparent",
-    "ParticleColor": "#bd9c60",
+    "ParticleColor": "#532c19",
     "VariantRotation": "NESW",
     "InteractionHint": "ImmersiveGardening.interactionHints.interactPlanter",
-    "State": {
-      "Definitions": {
-        "Empty": {},
-        "Plant": {}
-      }
-    },
     "Interactions": {
-      "Use": "PlanterInteraction"
+      "Use": "PlanterInsertPlantInteraction",
+      "Secondary": "PlanterRemovePlantInteraction"
     },
     "HitboxType": "Block_Vertical_Three_Eighth"
   },

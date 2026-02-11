@@ -1,6 +1,11 @@
-item.Planter_Hardwood_Half.name=Small Hardwood Planter
-item.Planter_Hardwood_Pot.name=Small Planter
+item.Planter_Hardwood_Half.name=tall Hardwood Planter
+item.Planter_Hardwood_Pot.name=Hardwood Pot
 item.Rake_Small.name=Small Rake
 item.Rake.name=Rake
+item.Bird_Fountain.name=Bird Fountain
+item.Birdhouse.name=Birdhouse
+item.Frog_Boots.name=Frog Boots
+item.Raccoon_Boots.name=Raccoon Boots
+item.Decorative_Rocks.name=Decorative Rocks
 item.Shovel_Small.name=Small Shovel
-interactionHints.interactPlanter = Press [{key}] to Insert / Remove a plant
+interactionHints.interactPlanter = Press [{key}] to Insert a plant

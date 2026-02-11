@@ -10,7 +10,8 @@ import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.raccseal.immersivegardening.component.BoundPlantEntityComponent;
 import com.raccseal.immersivegardening.component.PlantDisplayComponent;
-import com.raccseal.immersivegardening.interaction.PlanterInteraction;
+import com.raccseal.immersivegardening.interaction.PlanterInsertPlantInteraction;
+import com.raccseal.immersivegardening.interaction.PlanterRemovePlantInteraction;
 import com.raccseal.immersivegardening.system.PlanterSystems;
 
 public class ImmersiveGardeningPlugin extends JavaPlugin {
@@ -45,15 +46,14 @@ public class ImmersiveGardeningPlugin extends JavaPlugin {
                 "PlantDisplayComponent",
                 PlantDisplayComponent.CODEC
         );
-        this.getCodecRegistry(Interaction.CODEC).register("PlanterInteraction", PlanterInteraction.class, PlanterInteraction.CODEC);
+        this.getCodecRegistry(Interaction.CODEC).register("PlanterInsertPlantInteraction", PlanterInsertPlantInteraction.class, PlanterInsertPlantInteraction.CODEC);
+        this.getCodecRegistry(Interaction.CODEC).register("PlanterRemovePlantInteraction", PlanterRemovePlantInteraction.class, PlanterRemovePlantInteraction.CODEC);
 
         // Register systems for handling planter block events
-        ComponentRegistryProxy<EntityStore> entityRegistry = this.getEntityStoreRegistry();
+        this.getEntityStoreRegistry().registerSystem(new PlanterSystems.PlantDisplayTick());
+        this.getEntityStoreRegistry().registerSystem(new PlanterSystems.BreakPlanterSystem());
 
-        entityRegistry.registerSystem(new PlanterSystems.PlantDisplayTick());
-        entityRegistry.registerSystem(new PlanterSystems.BreakPlanterSystem());
-
-        LOGGER.atInfo().log(this.getName() + "plugin setup complete!");
+        LOGGER.atInfo().log(this.getName() + " plugin setup complete!");
     }
 
 
