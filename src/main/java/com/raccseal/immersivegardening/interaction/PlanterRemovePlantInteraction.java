@@ -94,7 +94,7 @@ public class PlanterRemovePlantInteraction extends SimpleBlockInteraction {
     }
 
     private void spawnItemDrop(CommandBuffer<EntityStore> commandBuffer, ItemStack itemStack, Vector3i blockPos) {
-        Vector3d dropPosition = blockPos.toVector3d().add(0.5, 0.5, 0.5);
+        Vector3d dropPosition = blockPos.toVector3d().add(0.0, 1.1, 0.0);
         Holder<EntityStore> itemHolder = ItemComponent.generateItemDrop(commandBuffer, itemStack, dropPosition, Vector3f.ZERO, 0.0F, 0.0F, 0.0F);
         if (itemHolder != null) {
             commandBuffer.addEntity(itemHolder, AddReason.SPAWN);

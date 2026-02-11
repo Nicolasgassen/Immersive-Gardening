@@ -223,7 +223,7 @@ public class PlanterSystems {
          * Spawns an item drop from the entity store.
          */
         private void spawnItemDropFromStore(Store<EntityStore> store, ItemStack itemStack, Vector3i blockPos) {
-            Vector3d dropPosition = blockPos.toVector3d().add(0.5, 1.0, 0.5);
+            Vector3d dropPosition = blockPos.toVector3d().add(0.0, 1.1, 0.0);
 
             Holder<EntityStore> itemHolder = ItemComponent.generateItemDrop(
                     store,
