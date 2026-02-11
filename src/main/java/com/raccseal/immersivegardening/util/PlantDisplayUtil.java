@@ -48,29 +48,23 @@ public class PlantDisplayUtil {
      */
     @Nullable
     public static UUID[] remakePlantEntities(Store<EntityStore> store, @Nullable Ref<EntityStore> existingRef, @Nullable ItemStack[] plantItems, Vector3i planterPos, Vector3d[] entityOffsets) {
-        LOGGER.atInfo().log("remakePlantEntities called - plantItems: " + (plantItems != null ? plantItems.length : "null") + ", entityOffsets: " + entityOffsets.length);
 
         if (existingRef != null) {
-            LOGGER.atInfo().log("Removing existing entity reference");
             store.removeEntity(existingRef, RemoveReason.REMOVE);
         }
         if (plantItems == null || plantItems.length == 0) {
-            LOGGER.atWarning().log("No plant items provided, returning null");
             return null;
         }
 
         final int entityCount = entityOffsets.length;
-        LOGGER.atInfo().log("Creating " + entityCount + " plant entities from " + plantItems.length + " plant types");
 
         // Initialize all holders
         UUID[] uuids = new UUID[entityCount];
         for (int i = 0; i < entityCount; i++) {
             // Get the plant item for this entity, cycling through the array if necessary
             ItemStack plantItem = plantItems[i % plantItems.length];
-            LOGGER.atInfo().log("  Entity " + i + ": using plantItem[" + (i % plantItems.length) + "] = " + (plantItem != null ? plantItem.getItemId() : "null"));
 
             if (plantItem == null || plantItem.isEmpty()) {
-                LOGGER.atWarning().log("  Entity " + i + " has null/empty plant, skipping");
                 uuids[i] = null;
                 continue;
             }
@@ -117,12 +111,8 @@ public class PlantDisplayUtil {
                 uuids[i] = null;
                 continue;
             }
-            LOGGER.atInfo().log("  Entity " + i + " created successfully with UUID: " + entityUUID);
             uuids[i] = entityUUID;
         }
-
-        long successCount = Arrays.stream(uuids).filter(u -> u != null).count();
-        LOGGER.atInfo().log("remakePlantEntities complete: " + successCount + "/" + entityCount + " entities created");
         return uuids;
     }
 
