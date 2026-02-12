@@ -1,6 +1,6 @@
 {
   "TranslationProperties": {
-    "Name": "ImmersiveGardening.items.Rake_Small.name"
+    "Name": "ImmersiveGardening.item.Rake_Small.name"
   },
   "PlayerAnimationsId": "Block",
   "Categories": [

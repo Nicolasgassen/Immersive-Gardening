@@ -1,0 +1,86 @@
+{
+  "TranslationProperties": {
+    "Name": "ImmersiveGardening.item.Frog_Boots.name"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Deco"
+  ],
+  "Set": "",
+  "Icon": "Icons/ItemsGenerated/Immersive_Gardening_Frog_Boots.png",
+  "IconProperties": {
+    "Scale": 1.6,
+    "Rotation": [
+      13,
+      327,
+      0
+    ],
+    "Translation": [
+      4,
+      -7
+    ]
+  },
+  "Interactions": {
+    "Primary": "Block_Primary",
+    "Secondary": "Block_Secondary"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ResourceTypeId": "Wood_Redwood"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Builders",
+        "Type": "StructuralCrafting",
+        "Categories": [
+          "Sign"
+        ]
+      }
+    ]
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Dust",
+    "BlockSoundSetId": "Mud",
+    "CustomModel": "Blocks/Frog_Boots.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "BlockTextures/Frog_Boots.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "Gathering": {
+      "Soft": {
+        "IsWeaponBreakable": false
+      }
+    },
+    "HitboxType": "Plant_Medium",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "ParticleColor": "#267d07",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "VariantRotation": "NESW"
+  },
+  "ResourceTypes": [
+    {
+      "Id": "Fuel"
+    },
+    {
+      "Id": "Charcoal"
+    }
+  ],
+  "Tags": {
+    "Type": [
+      "Deco"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Wood"
+}

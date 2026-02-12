@@ -202,16 +202,12 @@ public class PlanterInsertPlantInteraction extends SimpleBlockInteraction {
 
 
     private Vector3d[] plantPositions(String blockId) {
-        switch (blockId) {
-            case "Immersive_Gardening_Planter_Hardwood_Half" -> {
-                return new Vector3d[]{new Vector3d(0.3, 0.9, -0.35), new Vector3d(0.0, 0.9, -0.35), new Vector3d(-0.3, 0.9, -0.35)};
-            }
-            case "Immersive_Gardening_Planter_Hardwood_Pot" -> {
-                return new Vector3d[]{new Vector3d(0.0, 0.5, 0.0)};
-            }
-            default -> {
-                return new Vector3d[]{new Vector3d(0.0, 0.5, 0.0)};
-            }
+        if(blockId.contains("Tall")) {
+            return new Vector3d[]{new Vector3d(0.3, 0.9, -0.35), new Vector3d(0.0, 0.9, -0.35), new Vector3d(-0.3, 0.9, -0.35)};
         }
+        else if(blockId.contains("Pot")) {
+            return new Vector3d[]{new Vector3d(0.0, 0.55, 0.0)};
+        }
+        return new Vector3d[]{new Vector3d(0.0, 0.5, 0.0)};
     }
 }

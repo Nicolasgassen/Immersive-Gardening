@@ -1,6 +1,6 @@
 {
   "TranslationProperties": {
-    "Name": "ImmersiveGardening.item.Planter_Hardwood_Pot.name"
+    "Name": "ImmersiveGardening.item.Planter_Redwood_Tall.name"
   },
   "PlayerAnimationsId": "Block",
   "Categories": [
@@ -19,7 +19,7 @@
         "Quantity": 5
       },
       {
-        "ItemId": "Wood_Hardwood",
+        "ItemId": "Wood_Redwood",
         "Quantity": 1
       }
     ],
@@ -30,30 +30,30 @@
         "Categories": [
           "Planters"
         ],
-        "RequiredTierLevel": 8
+        "RequiredTierLevel": 5
       }
     ]
   },
-  "Icon": "Icons/ItemsGenerated/Immersive_Gardening_Planter_Hardwood_Pot.png",
+  "Icon": "Icons/ItemsGenerated/Immersive_Gardening_Planter_Redwood_Tall.png",
   "IconProperties": {
-    "Scale": 0.8,
+    "Scale": 0.7,
     "Rotation": [
       22.5,
       45,
       22.5
     ],
     "Translation": [
-      0,
-      -13.5
+      7,
+      -17
     ]
   },
   "BlockType": {
     "BlockParticleSetId": "Wood",
     "BlockSoundSetId": "Wood",
-    "CustomModel": "Blocks/Planter_Pot.blockymodel",
+    "CustomModel": "Blocks/Planter_Tall.blockymodel",
     "CustomModelTexture": [
       {
-        "Texture": "BlockTextures/Planter_Pot.png",
+        "Texture": "BlockTextures/Planter_Tall/Planter_Redwood_Tall.png",
         "Weight": 1
       }
     ],
@@ -73,14 +73,14 @@
     },
     "Material": "Solid",
     "Opacity": "Transparent",
-    "ParticleColor": "#532c19",
+    "ParticleColor": "#6a3920",
     "VariantRotation": "NESW",
     "InteractionHint": "ImmersiveGardening.interactionHints.interactPlanter",
     "Interactions": {
       "Use": "PlanterInsertPlantInteraction",
       "Secondary": "PlanterRemovePlantInteraction"
     },
-    "HitboxType": "Plant_Large"
+    "HitboxType": "Block_Vertical_Three_Eighth"
   },
   "ResourceTypes": [
     {
@@ -102,10 +102,5 @@
     ]
   },
   "ItemSoundSetId": "ISS_Blocks_Wood",
-  "ItemLevel": 4,
-  "PlanterOffset": {
-    "x": 0.2,
-    "y": 0.9,
-    "z": 0.5
-  }
+  "ItemLevel": 4
 }

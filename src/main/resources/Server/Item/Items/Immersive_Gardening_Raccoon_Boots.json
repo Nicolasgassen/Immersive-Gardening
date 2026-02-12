@@ -1,0 +1,86 @@
+{
+  "TranslationProperties": {
+    "Name": "ImmersiveGardening.item.Raccoon_Boots.name"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Deco"
+  ],
+  "Set": "",
+  "Icon": "Icons/ItemsGenerated/Immersive_Gardening_Raccoon_Boots.png",
+  "IconProperties": {
+    "Scale": 1.3,
+    "Rotation": [
+      13,
+      327,
+      0
+    ],
+    "Translation": [
+      2,
+      -7
+    ]
+  },
+  "Interactions": {
+    "Primary": "Block_Primary",
+    "Secondary": "Block_Secondary"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ResourceTypeId": "Wood_Redwood"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Builders",
+        "Type": "StructuralCrafting",
+        "Categories": [
+          "Sign"
+        ]
+      }
+    ]
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Dust",
+    "BlockSoundSetId": "Mud",
+    "CustomModel": "Blocks/Raccoon_Boots.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "BlockTextures/Raccoon_Boots.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "Gathering": {
+      "Soft": {
+        "IsWeaponBreakable": false
+      }
+    },
+    "HitboxType": "Plant_Medium",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "ParticleColor": "#454545",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "VariantRotation": "NESW"
+  },
+  "ResourceTypes": [
+    {
+      "Id": "Fuel"
+    },
+    {
+      "Id": "Charcoal"
+    }
+  ],
+  "Tags": {
+    "Type": [
+      "Deco"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Wood"
+}

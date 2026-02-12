@@ -7,7 +7,7 @@
       "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
       "shape": {
         "type": "box",
-        "offset": {"x": 0, "y": 48.5, "z": 0},
+        "offset": {"x": 0, "y": 42.5, "z": 0},
         "stretch": {"x": 1, "y": 1, "z": 1},
         "settings": {
           "isPiece": false,
@@ -424,7 +424,7 @@
               "id": "11",
               "name": "cube--C7",
               "position": {"x": -1.73829, "y": -1.08261, "z": -6.55725},
-              "orientation": {"x": -0.59637, "y": 0.70442, "z": -0.37993, "w": 0.06163},
+              "orientation": {"x": -0.59636, "y": 0.70442, "z": -0.37993, "w": 0.06163},
               "shape": {
                 "type": "box",
                 "offset": {"x": 1.5, "y": -3.5, "z": -9},
@@ -653,7 +653,7 @@
               "id": "16",
               "name": "cube--C4",
               "position": {"x": -1.73828, "y": -1.08261, "z": -2.55726},
-              "orientation": {"x": -0.16521, "y": 0.17253, "z": 0.02349, "w": 0.97077},
+              "orientation": {"x": -0.16521, "y": 0.17252, "z": 0.02349, "w": 0.97077},
               "shape": {
                 "type": "box",
                 "offset": {"x": 0.5, "y": 0.98251, "z": -1.15101},
@@ -933,7 +933,7 @@
         {
           "id": "22",
           "name": "cube--C2",
-          "position": {"x": 2, "y": -29.98251, "z": -6},
+          "position": {"x": 2, "y": -23.98251, "z": -6},
           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
           "shape": {
             "type": "box",
@@ -989,11 +989,11 @@
           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
           "shape": {
             "type": "box",
-            "offset": {"x": -2, "y": -33.51749, "z": 6},
+            "offset": {"x": -2, "y": -30.51749, "z": 6},
             "stretch": {"x": 1, "y": 1, "z": 1},
             "settings": {
               "isPiece": false,
-              "size": {"x": 8, "y": 38, "z": 8},
+              "size": {"x": 8, "y": 32, "z": 8},
               "isStaticBox": true
             },
             "textureLayout": {
@@ -1089,7 +1089,7 @@
         {
           "id": "25",
           "name": "cube--C5",
-          "position": {"x": 2, "y": -31.98251, "z": -6},
+          "position": {"x": 2, "y": -25.98251, "z": -6},
           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
           "shape": {
             "type": "box",
@@ -1186,7 +1186,7 @@
             },
             "unwrapMode": "custom",
             "visible": true,
-            "doubleSided": false,
+            "doubleSided": true,
             "shadingMode": "flat"
           }
         }

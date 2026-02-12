@@ -1,0 +1,106 @@
+{
+  "TranslationProperties": {
+    "Name": "ImmersiveGardening.item.Planter_Blackwood_Tall.name"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Furniture.Containers"
+  ],
+  "Set": "",
+  "Recipe": {
+    "TimeSeconds": 2,
+    "Input": [
+      {
+        "ResourceTypeId": "Soils",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "Wood_Blackwood",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "Farmingbench",
+        "Categories": [
+          "Planters"
+        ],
+        "RequiredTierLevel": 6
+      }
+    ]
+  },
+  "Icon": "Icons/ItemsGenerated/Immersive_Gardening_Planter_Blackwood_Tall.png",
+  "IconProperties": {
+    "Scale": 0.7,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      7,
+      -17
+    ]
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Wood",
+    "BlockSoundSetId": "Wood",
+    "CustomModel": "Blocks/Planter_Tall.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "BlockTextures/Planter_Tall/Planter_Blackwood_Tall.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "BlockEntity": {
+      "Components": {
+        "PlanterComponent": {}
+      }
+    },
+    "Flags": {
+      "IsUsable": false
+    },
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Woods"
+      }
+    },
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "ParticleColor": "#191919",
+    "VariantRotation": "NESW",
+    "InteractionHint": "ImmersiveGardening.interactionHints.interactPlanter",
+    "Interactions": {
+      "Use": "PlanterInsertPlantInteraction",
+      "Secondary": "PlanterRemovePlantInteraction"
+    },
+    "HitboxType": "Block_Vertical_Three_Eighth"
+  },
+  "ResourceTypes": [
+    {
+      "Id": "Fuel"
+    },
+    {
+      "Id": "Charcoal"
+    }
+  ],
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "Hardwood"
+    ],
+    "SubType": [
+      "Planter"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Wood",
+  "ItemLevel": 4
+}

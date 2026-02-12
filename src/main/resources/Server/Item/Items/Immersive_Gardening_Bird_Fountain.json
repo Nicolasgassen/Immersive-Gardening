@@ -1,6 +1,6 @@
 {
   "TranslationProperties": {
-    "Name": "ImmersiveGardening.items.Rake.name"
+    "Name": "ImmersiveGardening.item.Bird_Fountain.name"
   },
   "PlayerAnimationsId": "Block",
   "Categories": [
@@ -41,7 +41,7 @@
     ]
   },
   "BlockType": {
-    "BlockParticleSetId": "Wood",
+    "BlockParticleSetId": "Stone",
     "BlockSoundSetId": "Wood",
     "CustomModel": "Blocks/Bird_Fountain.blockymodel",
     "CustomModelTexture": [
@@ -52,14 +52,14 @@
     ],
     "DrawType": "Model",
     "Gathering": {
-      "Soft": {
-        "IsWeaponBreakable": false
+      "Breaking": {
+        "GatherType": "Rocks"
       }
     },
-    "HitboxType": "Rake",
+    "HitboxType": "Plant_Tall_Medium",
     "Material": "Solid",
     "Opacity": "Transparent",
-    "ParticleColor": "#793e21",
+    "ParticleColor": "#b3b3b3",
     "Support": {
       "Down": [
         {

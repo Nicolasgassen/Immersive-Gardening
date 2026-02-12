@@ -1,0 +1,63 @@
+{
+  "TranslationProperties": {
+    "Name": "ImmersiveGardening.item.Rock_Path.name"
+  },
+  "Categories": [
+    "Blocks.Deco"
+  ],
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "CustomModel": "Blocks/Rock_Path.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "BlockTextures/Rock_Path.png",
+        "Weight": 0
+      }
+    ],
+    "Group": "Roof",
+    "HitboxType": "Block_Flat",
+    "VariantRotation": "UpDown",
+    "Flags": {},
+    "BlockParticleSetId": "Grass",
+    "BlockSoundSetId": "Stone",
+    "RandomRotation": "YawStep90",
+    "ParticleColor": "#464646",
+    "Gathering": {
+      "Soft": {}
+    },
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    }
+  },
+  "PlayerAnimationsId": "Block",
+  "IconProperties": {
+    "Scale": 0.7,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0,
+      -4.8
+    ]
+  },
+  "Icon": "Icons/ItemsGenerated/Immersive_Gardening_Rock_Path.png",
+  "Tags": {
+    "Type": [
+      "Cloth"
+    ],
+    "Family": [
+      "Hide"
+    ],
+    "SubType": [
+      "Roof"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone"
+}
