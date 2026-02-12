@@ -1,16 +1,23 @@
-# Hytale Plugin Template
+# Immersive Gardening
 
-A template for Hytale java plugins. Created by [Up](https://github.com/UpcraftLP), and slightly modified by Kaupenjoe. 
+![Immersive Gardening](Thumbnail.png)
 
-### Configuring the Template
-If you for example installed the game in a non-standard location, you will need to tell the project about that.
-The recommended way is to create a file at `%USERPROFILE%/.gradle/gradle.properties` to set these properties globally.
+Immersive Gardening adds many decorative blocks to Hytale which allows you to create cozy little Gardens and Greenhouses (WIP)
+It also adds new Planters which you can place flowers into.
 
-```properties
-# Set a custom game install location
-hytale.install_dir=path/to/Hytale
+## New items
 
-# Speed up the decompilation process significantly, by only including the core hytale packages.
-# Recommended if decompiling the game takes a very long time on your PC.
-hytale.decompile_partial=true
-```
+- Tall Planters (Wood with variants)
+- Planter Pots (Wood with variants)
+- Bird fountain
+- Birdhouse
+- Frog Boots
+- Racoon Boots
+- Rake
+- Rake Small
+- Rock Path
+- Shovel Small
+
+## Upcoming features:
+- More decorative blocks
+- Greenhouse Blocks
