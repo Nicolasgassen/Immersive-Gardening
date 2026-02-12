@@ -25,18 +25,25 @@
     "Secondary": "Block_Secondary"
   },
   "Recipe": {
+    "TimeSeconds": 0,
     "Input": [
       {
-        "ResourceTypeId": "Wood_Redwood"
+        "ItemId": "Ingredient_Leather_Light",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Plant_Petals_Black",
+        "Quantity": 1
       }
     ],
     "BenchRequirement": [
       {
-        "Id": "Builders",
-        "Type": "StructuralCrafting",
+        "Type": "Crafting",
+        "Id": "Farmingbench",
         "Categories": [
-          "Sign"
-        ]
+          "Decorative"
+        ],
+        "RequiredTierLevel": 1
       }
     ]
   },

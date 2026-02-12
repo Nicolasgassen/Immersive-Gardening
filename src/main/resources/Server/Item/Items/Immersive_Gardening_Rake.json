@@ -25,18 +25,25 @@
     "Secondary": "Block_Secondary"
   },
   "Recipe": {
+    "TimeSeconds": 0,
     "Input": [
       {
-        "ResourceTypeId": "Wood_Redwood"
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Stick",
+        "Quantity": 2
       }
     ],
     "BenchRequirement": [
       {
-        "Id": "Builders",
-        "Type": "StructuralCrafting",
+        "Type": "Crafting",
+        "Id": "Farmingbench",
         "Categories": [
-          "Sign"
-        ]
+          "Decorative"
+        ],
+        "RequiredTierLevel": 1
       }
     ]
   },

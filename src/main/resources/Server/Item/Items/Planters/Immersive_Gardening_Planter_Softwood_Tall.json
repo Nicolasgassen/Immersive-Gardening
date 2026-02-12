@@ -8,7 +8,7 @@
   ],
   "Set": "",
   "Recipe": {
-    "TimeSeconds": 2,
+    "TimeSeconds": 0,
     "Input": [
       {
         "ResourceTypeId": "Soils",
@@ -19,7 +19,7 @@
         "Quantity": 5
       },
       {
-        "ItemId": "Wood_Softwood",
+        "ItemId": "Wood_Softwood_Planks",
         "Quantity": 1
       }
     ],

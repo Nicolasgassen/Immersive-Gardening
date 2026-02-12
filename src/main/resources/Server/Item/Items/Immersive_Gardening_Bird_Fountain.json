@@ -25,24 +25,27 @@
     "Secondary": "Block_Secondary"
   },
   "Recipe": {
+    "TimeSeconds": 0,
     "Input": [
       {
-        "ResourceTypeId": "Wood_Redwood"
+        "ResourceTypeId": "Rock_Marble",
+        "Quantity": 2
       }
     ],
     "BenchRequirement": [
       {
-        "Id": "Builders",
-        "Type": "StructuralCrafting",
+        "Type": "Crafting",
+        "Id": "Farmingbench",
         "Categories": [
-          "Sign"
-        ]
+          "Decorative"
+        ],
+        "RequiredTierLevel": 1
       }
     ]
   },
   "BlockType": {
     "BlockParticleSetId": "Stone",
-    "BlockSoundSetId": "Wood",
+    "BlockSoundSetId": "Stone",
     "CustomModel": "Blocks/Bird_Fountain.blockymodel",
     "CustomModelTexture": [
       {

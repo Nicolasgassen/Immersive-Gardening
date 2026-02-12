@@ -25,23 +25,26 @@
     "Secondary": "Block_Secondary"
   },
   "Recipe": {
+    "TimeSeconds": 0,
     "Input": [
       {
-        "ResourceTypeId": "Wood_Redwood"
+        "ResourceTypeId": "Wood_Redwood",
+        "Quantity": 2
       }
     ],
     "BenchRequirement": [
       {
-        "Id": "Builders",
-        "Type": "StructuralCrafting",
+        "Type": "Crafting",
+        "Id": "Farmingbench",
         "Categories": [
-          "Sign"
-        ]
+          "Decorative"
+        ],
+        "RequiredTierLevel": 1
       }
     ]
   },
   "BlockType": {
-    "BlockParticleSetId": "Stone",
+    "BlockParticleSetId": "Wood",
     "BlockSoundSetId": "Wood",
     "CustomModel": "Blocks/Birdhouse.blockymodel",
     "CustomModelTexture": [
@@ -59,7 +62,7 @@
     "HitboxType": "Plant_Tall_Medium",
     "Material": "Solid",
     "Opacity": "Transparent",
-    "ParticleColor": "#b3b3b3",
+    "ParticleColor": "#3a1e13",
     "Support": {
       "Down": [
         {

@@ -59,5 +59,24 @@
       "Roof"
     ]
   },
-  "ItemSoundSetId": "ISS_Blocks_Stone"
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "Recipe": {
+    "TimeSeconds": 0,
+    "Input": [
+      {
+        "ResourceTypeId": "Rubble",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "Farmingbench",
+        "Categories": [
+          "Decorative"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ]
+  }
 }

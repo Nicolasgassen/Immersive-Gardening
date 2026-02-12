@@ -9,14 +9,14 @@
   "Set": "",
   "Icon": "Icons/ItemsGenerated/Immersive_Gardening_Frog_Boots.png",
   "IconProperties": {
-    "Scale": 1.6,
+    "Scale": 1.3,
     "Rotation": [
       13,
       327,
       0
     ],
     "Translation": [
-      4,
+      2,
       -7
     ]
   },
@@ -25,18 +25,25 @@
     "Secondary": "Block_Secondary"
   },
   "Recipe": {
+    "TimeSeconds": 0,
     "Input": [
       {
-        "ResourceTypeId": "Wood_Redwood"
+        "ItemId": "Ingredient_Leather_Light",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Plant_Petals_Green",
+        "Quantity": 1
       }
     ],
     "BenchRequirement": [
       {
-        "Id": "Builders",
-        "Type": "StructuralCrafting",
+        "Type": "Crafting",
+        "Id": "Farmingbench",
         "Categories": [
-          "Sign"
-        ]
+          "Decorative"
+        ],
+        "RequiredTierLevel": 1
       }
     ]
   },
