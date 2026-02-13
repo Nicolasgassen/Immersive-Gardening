@@ -1,0 +1,82 @@
+{
+  "TranslationProperties": {
+    "Name": "ImmersiveGardening.item.Birdhouse_Hanging.name"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Deco"
+  ],
+  "Set": "",
+  "Icon": "Icons/ItemsGenerated/Immersive_Gardening_Birdhouse_Hanging.png",
+  "IconProperties": {
+    "Scale": 1.1,
+    "Rotation": [
+      0,
+      336,
+      0
+    ],
+    "Translation": [
+      -4,
+      -11
+    ]
+  },
+  "Interactions": {
+    "Primary": "Block_Primary",
+    "Secondary": "Block_Secondary"
+  },
+  "Recipe": {
+    "TimeSeconds": 0,
+    "Input": [
+      {
+        "ResourceTypeId": "Wood_Redwood",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "Farmingbench",
+        "Categories": [
+          "Decorative"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ]
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Wood",
+    "BlockSoundSetId": "Wood",
+    "CustomModel": "Blocks/Birdhouse_Hanging.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "BlockTextures/Birdhouse_Hanging.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "HitboxType": "Birdhouse_Hanging",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "ParticleColor": "#3a1e13",
+    "VariantRotation": "NESW"
+  },
+  "ResourceTypes": [
+    {
+      "Id": "Fuel"
+    },
+    {
+      "Id": "Charcoal"
+    }
+  ],
+  "Tags": {
+    "Type": [
+      "Deco"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Wood"
+}

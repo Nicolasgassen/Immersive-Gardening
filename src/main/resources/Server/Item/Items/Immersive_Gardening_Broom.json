@@ -1,0 +1,88 @@
+{
+  "TranslationProperties": {
+    "Name": "ImmersiveGardening.item.Broom.name"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Deco"
+  ],
+  "Set": "",
+  "Icon": "Icons/ItemsGenerated/Immersive_Gardening_Broom.png",
+  "IconProperties": {
+    "Scale": 0.5,
+    "Rotation": [
+      39,
+      155,
+      0
+    ],
+    "Translation": [
+      2,
+      -33
+    ]
+  },
+  "Interactions": {
+    "Primary": "Block_Primary",
+    "Secondary": "Block_Secondary"
+  },
+  "Recipe": {
+    "TimeSeconds": 0,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Stick",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "Farmingbench",
+        "Categories": [
+          "Decorative"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ]
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Wood",
+    "BlockSoundSetId": "Wood",
+    "CustomModel": "Blocks/Broom.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "BlockTextures/Broom.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "HitboxType": "Rake",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "ParticleColor": "#793e21",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "VariantRotation": "NESW"
+  },
+  "ResourceTypes": [
+    {
+      "Id": "Fuel"
+    },
+    {
+      "Id": "Charcoal"
+    }
+  ],
+  "Tags": {
+    "Type": [
+      "Deco"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone"
+}

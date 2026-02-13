@@ -1,0 +1,85 @@
+{
+  "TranslationProperties": {
+    "Name": "ImmersiveGardening.item.Gardening_Soil_Closed.name"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Deco"
+  ],
+  "Set": "",
+  "Icon": "Icons/ItemsGenerated/Immersive_Gardening_Gardening_Soil_Closed.png",
+  "IconProperties": {
+    "Scale": 0.8,
+    "Rotation": [
+      56,
+      6,
+      0
+    ],
+    "Translation": [
+      -1,
+      -3
+    ]
+  },
+  "Interactions": {
+    "Primary": "Block_Primary",
+    "Secondary": "Block_Secondary"
+  },
+  "Recipe": {
+    "TimeSeconds": 0,
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "Farmingbench",
+        "Categories": [
+          "Decorative"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ],
+    "Input": [
+      {
+        "ResourceTypeId": "Soils",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Leather_Light"
+      }
+    ]
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Dirt",
+    "BlockSoundSetId": "Cloth",
+    "CustomModel": "Blocks/Gardening_Soil_Closed.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "BlockTextures/Gardening_Soil.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "HitboxType": "Block_Quarter",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "ParticleColor": "#3a1e13",
+    "VariantRotation": "NESW"
+  },
+  "ResourceTypes": [
+    {
+      "Id": "Fuel"
+    },
+    {
+      "Id": "Charcoal"
+    }
+  ],
+  "Tags": {
+    "Type": [
+      "Deco"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Armor_Cloth"
+}

@@ -11,12 +11,17 @@ It also adds new Planters which you can place flowers into.
 - Planter Pots (Wood with variants)
 - Bird fountain
 - Birdhouse
+- Birdhouse (Hanging)
 - Frog Boots
 - Racoon Boots
 - Rake
 - Rake Small
+- Gardening Rake
+- Broom
 - Rock Path
 - Shovel Small
+- Gardening Soil Bag (open)
+- Gardening Soil Bag (closed)
 
 ## Upcoming features:
 - More decorative blocks
