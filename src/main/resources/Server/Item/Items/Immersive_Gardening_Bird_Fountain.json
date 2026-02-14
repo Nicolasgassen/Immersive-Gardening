@@ -70,7 +70,20 @@
         }
       ]
     },
-    "VariantRotation": "NESW"
+    "VariantRotation": "NESW",
+    "State": {
+      "Definitions": {
+        "Filled": {
+          "DrawType": "Model",
+          "CustomModelTexture": [
+            {
+              "Texture": "BlockTextures/Bird_Fountain.png"
+            }
+          ],
+          "CustomModel": "Blocks/Bird_Fountain_Full.blockymodel"
+        }
+      }
+    }
   },
   "ResourceTypes": [
     {
