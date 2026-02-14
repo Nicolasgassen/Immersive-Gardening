@@ -1,6 +1,6 @@
 # Immersive Gardening
 
-![Immersive Gardening](Thumbnail.png)
+![Immersive Gardening](Icon.jpg)
 
 Immersive Gardening adds many decorative blocks to Hytale which allows you to create cozy little Gardens and Greenhouses (WIP)
 It also adds new Planters which you can place flowers into.
@@ -9,7 +9,8 @@ It also adds new Planters which you can place flowers into.
 
 - Tall Planters (Wood with variants)
 - Planter Pots (Wood with variants)
-- Bird fountain
+- Small Planter Pots (Wood with variants)
+- Bird fountain (Fillable with water by right clicking with a water bucket)
 - Birdhouse
 - Birdhouse (Hanging)
 - Frog Boots
