@@ -27,3 +27,7 @@ It also adds new Planters which you can place flowers into.
 ## Upcoming features:
 - More decorative blocks
 - Greenhouse Blocks
+
+## Known Issues:
+- Texture flickering on the standing birdhouse
+- Tier 4 and 6 of the farmers bench have switched and the crafting recipies are not updated yet

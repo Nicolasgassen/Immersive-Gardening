@@ -1,0 +1,168 @@
+{
+  "Type": "Abstract",
+  "Parameters": {
+    "Appearance": {
+      "Value": "Venus_Fly_Trap",
+      "Description": "Model to be used"
+    },
+    "DropList": {
+      "Value": "Empty",
+      "Description": "Drop Items"
+    },
+    "MaxHealth": {
+      "Value": 100,
+      "Description": "Max health for the NPC"
+    },
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Template.name",
+      "Description": "Translation key for NPC name display"
+    },
+    "AttitudeGroup": {
+      "Value": "Empty",
+      "Description": "This NPCs attitude group"
+    },
+    "DefaultPlayerAttitude": {
+      "Value": "Hostile",
+      "Description": "Default attitude towards players"
+    },
+    "DefaultNPCAttitude": {
+      "Value": "Ignore",
+      "Description": "Default attitude towards other NPCs"
+    },
+    "ViewRange": {
+      "Value": 15,
+      "Description": "View range in blocks"
+    },
+    "ViewSector": {
+      "Value": 180,
+      "Description": "View sector in degrees"
+    },
+    "HearingRange": {
+      "Value": 8,
+      "Description": "Hearing range in blocks"
+    },
+    "AlertedRange": {
+      "Value": 30,
+      "Description": "A range within which the player can be seen/sensed when the NPC is alerted to their presence"
+    },
+    "AbsoluteDetectionRange": {
+      "Value": 4,
+      "Description": "The range at which a target is guaranteed to be detected. If zero, absolute detection will be disabled."
+    },
+    "Attack": {
+      "Value": "Root_NPC_Plant_Attack",
+      "Description": "The attack to use."
+    },
+    "AttackDistance": {
+      "Value": 2,
+      "Description": "The distance at which an NPC will execute attacks"
+    },
+    "AttackPauseRange": {
+      "Value": [1.5, 2],
+      "Description": "the range for absolute minimum time before an NPC can execute a second attack (or block)."
+    },
+    "CombatRelativeTurnSpeed": {
+      "Value": 1.5,
+      "Description": "Modifier that decides turn speed difference in combat."
+    }
+  },
+  "Appearance": {
+    "Compute": "Appearance"
+  },
+  "DropList": {
+    "Compute": "DropList"
+  },
+  "MaxHealth": {
+    "Compute": "MaxHealth"
+  },
+  "DefaultPlayerAttitude": {
+    "Compute": "DefaultPlayerAttitude"
+  },
+  "DefaultNPCAttitude":{
+    "Compute": "DefaultNPCAttitude"
+  },
+  "AttitudeGroup": { "Compute": "AttitudeGroup" },
+  "StartState": "Idle",
+  "MotionControllerList": [
+    {
+      "Type": "Walk",
+      "MaxWalkSpeed": 3,
+      "Gravity": 10,
+      "MaxFallSpeed": 8,
+      "Acceleration": 10
+    }
+  ],
+  "Instructions": [
+    {
+      "Sensor": {
+        "Type": "State",
+        "State": "Idle"
+      },
+      "Instructions": [
+        {
+          "$Comment": "Check for any hostile targets in range that could alert the NPC",
+          "Sensor": {
+            "Reference": "Component_Sensor_Standard_Detection",
+            "Modify": {
+              "ViewRange": { "Compute": "ViewRange" },
+              "ViewSector": { "Compute": "ViewSector" },
+              "HearingRange": { "Compute": "HearingRange" },
+              "ThroughWalls": false,
+              "AbsoluteDetectionRange": { "Compute": "AbsoluteDetectionRange" },
+              "Attitudes": ["Hostile"]
+            }
+          },
+          "Actions": [
+            {
+              "Type": "State",
+              "State": "Combat"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Sensor": {
+        "Type": "State",
+        "State": "Combat"
+      },
+      "Instructions": [
+        {
+          "$Comment": "NPC melee attack",
+          "Sensor": {
+            "Type": "Target",
+            "Range": { "Compute": "AttackDistance" },
+            "Filters": [
+              {
+                "Type": "LineOfSight"
+              }
+            ]
+          },
+          "ActionsBlocking": true,
+          "Actions": [
+            {
+              "Type": "Attack",
+              "Attack": { "Compute": "Attack" },
+              "AttackPauseRange": { "Compute": "AttackPauseRange" }
+            },
+            {
+              "Comment": "Brief delay to prevent the NPC potentially strafing/backing away and missing the shot.",
+              "Type": "Timeout",
+              "Delay": [0.2, 0.2]
+            }
+          ],
+          "HeadMotion": {
+            "Type": "Aim",
+            "RelativeTurnSpeed": { "Compute": "CombatRelativeTurnSpeed" }
+          }
+        }
+      ],
+      "Tags": {
+        "Attack": ["Melee"]
+      }
+    }
+  ],
+  "NameTranslationKey": {
+    "Compute": "NameTranslationKey"
+  }
+}

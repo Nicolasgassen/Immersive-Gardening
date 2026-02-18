@@ -1,0 +1,36 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Plant",
+  "Parameters": {
+    "Appearance": {
+      "Value": "Venus_Fly_Trap",
+      "Description": "Model to be used."
+    },
+    "DropList": {
+      "Value": "Drop_Bear_Grizzly",
+      "Description": "Drop Items."
+    },
+    "MaxHealth": {
+      "Value": 5,
+      "Description": "Max Health."
+    },
+    "NameTranslationKey": {
+      "Value": "Immersive_Gardening.npcRoles.Venus_Fly_Trap.name",
+      "Description": "Translation key for NPC name display"
+    }
+  },
+  "Modify": {
+    "Appearance": {
+      "Compute": "Appearance"
+    },
+    "DropList": {
+      "Compute": "DropList"
+    },
+    "MaxHealth": {
+        "Compute": "MaxHealth"
+    },
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  }
+}
