@@ -1,0 +1,80 @@
+{
+  "TranslationProperties": {
+    "Name": "ImmersiveGardening.item.Plant_Meat.name",
+    "Description": "server.items.Food_Wildmeat_Raw.description"
+  },
+  "Parent": "Template_Food",
+  "Quality": "Common",
+  "Icon": "Icons/ItemsGenerated/Plant_Meat.png",
+  "PlayerAnimationsId": {
+    "Parent": "Item",
+    "Animations": {
+      "Consume": {
+        "FirstPerson": "Characters/Animations/Items/Main_Handed/Item/Attacks/Eat_Side/Eat_Side_FPS.blockyanim",
+        "ThirdPerson": "Characters/Animations/Items/Main_Handed/Item/Attacks/Eat_Side/Eat_Side.blockyanim",
+        "Speed": 1,
+        "Looping": true
+      }
+    }
+  },
+  "BlockType": {
+    "Material": "Empty",
+    "DrawType": "Model",
+    "CustomModel": "Items/Plant_Meat.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Plant_Meat.png",
+        "Weight": 1
+      }
+    ],
+    "ParticleColor": "#325516",
+    "CustomModelScale": 0.5
+  },
+  "ResourceTypes": [
+    {
+      "Id": "Meats"
+    }
+  ],
+  "InteractionVars": {
+    "Consume_Charge": {
+      "Interactions": [
+        {
+          "Parent": "Consume_Charge_Food_T1_Inner",
+          "Effects": {
+            "Particles": [
+              {
+                "SystemId": "Food_Eat",
+                "Color": "#EE988D",
+                "TargetNodeName": "Mouth",
+                "TargetEntityPart": "Entity"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Effect": {
+      "Interactions": [
+        {
+          "Type": "ApplyEffect",
+          "EffectId": "Food_Instant_Heal_T1"
+        }
+      ]
+    }
+  },
+  "MaxStack": 25,
+  "Scale": 2,
+  "DropOnDeath": true,
+  "IconProperties": {
+    "Scale": 0.58823,
+    "Rotation": [
+      22.5,
+      139,
+      0
+    ],
+    "Translation": [
+      0,
+      -13.5
+    ]
+  }
+}

@@ -45,5 +45,6 @@ item.Decorative_Rocks.name=Decorative Rocks
 item.Shovel_Small.name=Small Shovel
 item.Gardening_Soil_Open.name=Open Gardening Soil Bag
 item.Gardening_Soil_Closed.name=Closed Gardening Soil Bag
+item.Plant_Meat.name=Plant Meat
 interactionHints.interactPlanter = Press [{key}] to Insert a plant
 npcRoles.Venus_Fly_Trap.name=Venus Fly Trap

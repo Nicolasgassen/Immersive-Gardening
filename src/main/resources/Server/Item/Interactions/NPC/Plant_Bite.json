@@ -9,7 +9,7 @@
   "Next": {
     "Type": "Selector",
     "Effects": {
-      "WorldSoundEventId": "SFX_NPC_Unarmed_Swing"
+      "WorldSoundEventId": "SFX_Plant_Bite"
     },
     "$Comment": "Length of Combat",
     "RunTime": 0.167,

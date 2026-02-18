@@ -3,14 +3,14 @@
   "Texture": "NPC/Venus_Fly_Trap/Venus_Fly_Trap.png",
   "HitBox": {
     "Max": {
-      "X": 0.5,
-      "Y": 1,
-      "Z": 0.5
+      "X": 0.3,
+      "Y": 0.5,
+      "Z": 0.3
     },
     "Min": {
-      "X": -0.5,
+      "X": -0.3,
       "Y": 0,
-      "Z": -0.5
+      "Z": -0.3
     }
   },
   "AnimationSets": {
@@ -24,7 +24,8 @@
     "Attack": {
       "Animations": [
         {
-          "Animation": "NPC/Venus_Fly_Trap/Animations/Attack.blockyanim"
+          "Animation": "NPC/Venus_Fly_Trap/Animations/Attack.blockyanim",
+          "SoundEventId": "SFX_Plant_Bite"
         }
       ]
     }

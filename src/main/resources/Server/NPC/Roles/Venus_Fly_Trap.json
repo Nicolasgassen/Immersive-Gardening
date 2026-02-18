@@ -7,7 +7,7 @@
       "Description": "Model to be used."
     },
     "DropList": {
-      "Value": "Drop_Bear_Grizzly",
+      "Value": "Drop_Venus_Fly_Trap",
       "Description": "Drop Items."
     },
     "MaxHealth": {
