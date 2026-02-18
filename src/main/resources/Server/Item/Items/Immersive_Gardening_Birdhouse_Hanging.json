@@ -49,7 +49,7 @@
     "CustomModel": "Blocks/Birdhouse_Hanging.blockymodel",
     "CustomModelTexture": [
       {
-        "Texture": "BlockTextures/Birdhouse_Hanging.png",
+        "Texture": "BlockTextures/Birdhouse/Birdhouse_Hanging.png",
         "Weight": 1
       }
     ],
